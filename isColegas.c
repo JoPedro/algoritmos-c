@@ -9,7 +9,7 @@ int soma_divisores(int n)
     int i = 1;
     int soma = 0;
 
-    while (i != (n/2 + 1))
+    while (i < n / 2)
     {
         if (n % i == 0)
             soma += i;
