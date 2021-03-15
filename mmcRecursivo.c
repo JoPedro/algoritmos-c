@@ -1,9 +1,8 @@
 #include <stdio.h>
+#include <time.h>
 
-// 1..Maior(a, b)
-
-int mmcRecursivo_(int a, int b) {
-    static int multiplo = 0;
+long long mmcRecursivo_(long long a, long long b) {
+    static long long multiplo = 0;
 
     multiplo += b;
 
@@ -13,7 +12,7 @@ int mmcRecursivo_(int a, int b) {
         return mmcRecursivo_(a, b);
 }
 
-int mmcRecursivo(int a, int b) {
+long long mmcRecursivo(long long a, long long b) {
     if (a > b)
         return mmcRecursivo_(b, a);
     else
@@ -21,9 +20,13 @@ int mmcRecursivo(int a, int b) {
 }
 
 int main() {
-    int a, b, mmc;
-    scanf("%d %d", &a, &b);
+    long long a, b, mmc;
+    clock_t inicio, fim;
+    scanf("%lld %lld", &a, &b);
+    inicio = clock();
     mmc = mmcRecursivo(a, b);
-    printf("%d\n", mmc);
+    fim = clock();
+    printf("MMC: %lld\n", mmc);
+    printf("Tempo: %.6lfms\n", ((double)(fim - inicio)/(CLOCKS_PER_SEC/1000)));
     return 0;
 }
