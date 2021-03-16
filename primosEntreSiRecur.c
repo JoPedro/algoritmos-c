@@ -1,8 +1,6 @@
 #include <stdio.h>
 
-// 1..Menor(a, b)
-
-int primosRecur_(int a, int b, int a2) {
+long long primosRecur_(long long a, long long b, long long a2) {
     if ((a % a2 == 0) && (b % a2 == 0))
         return 0;
     
@@ -14,7 +12,7 @@ int primosRecur_(int a, int b, int a2) {
         return 1;
 }
 
-int primosRecur(int a, int b) {
+long long primosRecur(long long a, long long b) {
     if (a > b)
         return primosRecur_(b, a, b);
     else
@@ -22,7 +20,8 @@ int primosRecur(int a, int b) {
 }
 
 int main() {
-    int a, b, isPrimos;
+    long long a, b;
+    int isPrimos;
     scanf("%d %d", &a, &b);
     isPrimos = primosRecur(a, b);
     if (isPrimos > 0)
