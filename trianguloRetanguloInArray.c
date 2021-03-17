@@ -81,4 +81,3 @@ int indexOfMaxInArray(int arr[], int n) {
 
     return maior;
 }
-

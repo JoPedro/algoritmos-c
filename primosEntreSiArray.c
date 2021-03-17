@@ -10,10 +10,12 @@ int main() {
     int arr[n];
     for (int i = 0; i < n; ++i) 
         scanf("%d", &arr[i]);
+        
     if (parPrimosInArr(arr, n))
         printf("S\n");
     else
         printf("N\n");
+
     return 0;
 }
 
