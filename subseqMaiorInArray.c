@@ -23,7 +23,7 @@ int subseqMaiorInArray(int arr[], int n) {
 int subseqMaiorInArray_(int arr[], int n, int sub) {
     static int soma = 0; 
 
-    if (sub >= 2) {
+    if (sub >= 1) {
         int aux = 0; 
 
         for (int i = 0; i <= (n - sub); ++i) {
