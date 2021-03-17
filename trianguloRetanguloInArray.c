@@ -33,16 +33,14 @@ int triRet(int a, int b, int c) {
         c = aux;
     }
 
-    int resp = 0;
-
     if (a*a == b*b + c*c)
-        ++resp;
-    
-    return resp;
+        return 1;
+    else 
+        return 0;
 }
 
 int triRetInArr(int arr[], int n) {
-    if (n >= 3) {
+    // if (n >= 3) {
         int maior = indexOfMaxInArray(arr, n);
         int aux = 0;
 
@@ -51,23 +49,32 @@ int triRetInArr(int arr[], int n) {
             arr[0] = arr[maior];
             arr[maior] = aux;
         }
+        
+        // for (int i = 1; i < n; ++i) {
+        //     for (int j = i + 1; j < n; ++j) {
+        //         if (triRet(arr[0], arr[i], arr[j]))
+        //             return 1;
+        //     }
+        // }
 
-        for (int i = 1; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (triRet(arr[0], arr[i], arr[j]))
-                    return 1;
+        for (int k = 0; k < n-2; ++k) {
+            for (int i = k + 1; i < n; ++i) {
+                for (int j = i + 1; j < n; ++j) {
+                    if (triRet(arr[0], arr[i], arr[j]))
+                        return 1;
+                }
             }
         }
 
-        int arr2[n-1];
-        int k = 0;
-        for (int i = 1; i < n; ++i) {
-            arr2[k] = arr[i];
-            ++k;
-        }
-        return triRetInArr(arr2, n-1);
-    }
-    else 
+        // int arr2[n-1];
+        // int k = 0;
+        // for (int i = 1; i < n; ++i) {
+        //     arr2[k] = arr[i];
+        //     ++k;
+        // }
+        // return triRetInArr(arr2, n-1);
+    // }
+    // else 
         return 0;
 }
 
