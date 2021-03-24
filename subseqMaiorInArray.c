@@ -21,7 +21,7 @@ int subseqMaiorInArray(int arr[], int n) {
 }
 
 int subseqMaiorInArray_(int arr[], int n, int sub) {
-    static int soma = 0; 
+    int soma = 0; 
 
     if (sub >= 1) {
         int aux = 0; 
@@ -30,13 +30,11 @@ int subseqMaiorInArray_(int arr[], int n, int sub) {
             for (int j = i; j < (i + sub); ++j) {
                 aux += arr[j];
             }
-            if (aux > soma)
-                soma = aux;
-            aux = 0;
         }
         
-        --sub;
-        return subseqMaiorInArray_(arr, n, sub);
+        aux = subseqMaiorArray_(arr, n, sub-1);
+        if (aux > soma)
+            soma = aux;
     }
     return soma;
 }
