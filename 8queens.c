@@ -40,13 +40,13 @@ int eightQueens(char arr[8][8]) {
     return eightQueensRecur(arr, 0, 0);
 }
 
-int eightQueensRecur(char arr[8][8], int linha, int col) {
+int eightQueensRecur(char arr[8][8], int linha, int col) {  
     /* Rejeita */
     int c, exists = 0;
     for (c = 0; c < 8; ++c) {
         if (arr[linha][c] != 'Q') exists = 0;
         else {
-            arr[linha][c] = '.';
+            arr[linha][c] = '-';
             exists = 1;
             col = c;
             break;
